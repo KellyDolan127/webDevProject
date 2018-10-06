@@ -1,0 +1,64 @@
+#topBar{
+    white-space: nowrap; 
+    display: inline-block;
+    height: 20px;
+    width: 100%;
+    background-color: #DEFFED; 
+}
+
+#mainBar{
+    white-space: nowrap; 
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    background-color: #ABCCBA; 
+}
+
+.mainBarButtons{
+    float: left;
+    position: relative;
+    text-align: center;
+    font-size: 12pt;
+    display: inline-block;
+    box-shadow: 5px 5px 3px #888888;
+	background-color: #FFFFFF;
+    margin-top: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 12.5%;
+    height: 40%;
+}
+#logo {
+    float:left;
+}
+
+#user{
+    float: right;
+}
+
+#centerBox {
+    position: absolute;
+    overflow: auto;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    box-shadow: 5px 5px 3px #888888;
+    margin-top: 150px;
+    margin-left: 30%;
+    margin-right: 30%;
+    height: 43%;
+    width: 40%;
+}
+
+#centerBoxContent {
+    margin: 20px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.inputLoginSignup{
+	height: 40px;
+	width: 100px;
+}

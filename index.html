@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- 
+Any place I have an empty comment means we need to edit
+
+Please feel free to change the css (or anything really).  I did try to keep the css "dynamic" so when
+you re-size the webpage everything isn't overlapping and thrown around
+-->
+
+
+<html lang="en">
+
+    <head>
+        <title>First Page (Name of website?)</title><!---->
+        <meta charset="UTF-8">
+		<link href="style.css" type="text/css" rel="stylesheet" >
+		<link href="" type="image/png" rel="shortcut icon" /><!---->
+		<script type="text/javascript" src=""></script><!---->
+    </head>
+
+	<body>
+	<!--Top Bars for navigation-->
+	
+	<div id="topBar">
+	 
+	 <div id="logo">Site logo?(Picture?)</div>
+	 <div id="user">Username/login</div>
+	 
+	 <!--I've done login sessions before, but I used php as well as js.  Don't
+	 know exactly how to replicate it yet in js but this is what the php looked like:
+	 
+	 Basically, at the top of each page was: 
+	 <?php session_start(); ?>
+	 And this kept a user logged in throughout all the webpages.  To log someone out you used:
+	 session_destroy();
+	 
+	 And at the top of the page was either a "Login" option or a "Username" option.  The login
+	 was displayed if you weren't logged in, and the username displayed the user's name if they
+	 WERE logged in.  It also acted as a link to their profile.  This code checked which one to display:
+     <?php if (!isset($_SESSION['user']) && empty($_SESSION['user'])) {?>
+     <a href="login.php"> Login/Sign Up </a> <br>
+     <?php  $_SESSION['employee'] = "false"; }else{ ?>
+     <a href="profileDisplay.php"> Welcome, 
+     <br> <?php echo $_SESSION['user']; ?> </a> <br> 
+     </div>
+	 Hopefully this helps us going forward...you guys might already know how to do this in js
+	 -->
+	 
+	</div>
+	
+	<div id="mainBar">
+	
+	<!--These are "dynamic" right now so we can add more and take away more without the formatting
+	getting messed up - only change with width in css.  
+	
+	We can change the whole look of it...I figured most websites have a top
+	bar but we can get rid of it if you guys have other suggestions!
+	
+	We'll need to make these buttons to re-direct the user to whatever new page each tab points to.
+	I figure that's pretty easy and it might make more sense to just keep each page separate for now?
+	Don't care too much either way :)
+	
+	Just noting that: window.location = "pagePath" can be called to change windows-->
+	
+	<div class="mainBarButtons">
+	Tab1<!---->
+	</div>
+	<div class="mainBarButtons">
+	Tab2<!---->
+	</div>
+	<div class="mainBarButtons">
+	Tab3<!---->
+	</div>
+	<div class="mainBarButtons">
+	Tab4<!---->
+	</div>
+	<div class="mainBarButtons">
+	Tab5<!---->
+	</div>
+	<div class="mainBarButtons">
+	Tab6<!---->
+	</div>
+	
+	<!--I don't know what exactly our main page is going to display.  So I'm leaving it blank right now-->
+	
+	<!--I think we need to decide on a look and feel.  So what colors/general layout should we go for?-->
+	
+	</body>
+
+</html>
