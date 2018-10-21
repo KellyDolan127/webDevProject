@@ -1,17 +1,51 @@
-#topBar{
-    white-space: nowrap; 
-    display: inline-block;
-    height: 20px;
-    width: 100%;
-    background-color: #DEFFED; 
+
+body{
+
+    background-color: #193242;
+    color: #29465d;
 }
 
 #mainBar{
     white-space: nowrap; 
     display: inline-block;
-    height: 50px;
+    height: 70px;
     width: 100%;
-    background-color: #ABCCBA; 
+    background-color: #cfdad4; 
+}
+
+#sidebar {
+    padding: 2px;
+    clear: left;
+    width: 20%;
+    height: 400px;
+    float: left;
+    font-size: 13pt;
+    background-color: #cfdad4;
+    margin-bottom: 0;
+    position: relative; 
+    border-style: none;
+}
+
+#mainBarPic{
+    float:left;
+    position:relative;
+    display: inline-block;
+    margin-top: 10pt;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 17.5%;
+    height: 50%;
+}
+
+#mainBarSearch{
+    float:left;
+    position:relative;
+    display: inline-block;
+    margin-top: 30pt;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 40%;
+    height: 50%;
 }
 
 .mainBarButtons{
@@ -20,20 +54,32 @@
     text-align: center;
     font-size: 12pt;
     display: inline-block;
-    box-shadow: 5px 5px 3px #888888;
-	background-color: #FFFFFF;
-    margin-top: 10px;
+    box-shadow: 1px 1px 3px #888888;
+	background-color: #ebebeb;
+    margin-top: 19pt;
     margin-left: 2%;
     margin-right: 2%;
     width: 12.5%;
-    height: 40%;
-}
-#logo {
-    float:left;
+    height: 50%;
 }
 
-#user{
-    float: right;
+#mainPageFeed{
+    position: absolute;
+    overflow: auto;
+    margin-top: 80px;
+    left: 23%;
+    width: 75%;
+}
+
+.feed{
+color: #FFFFFF;
+height: 70px;
+width: 97%;
+padding: 5px;
+margin-bottom:10px;
+background-color: #29465d;
+border-style: solid;
+border-color: #888888;
 }
 
 #centerBox {

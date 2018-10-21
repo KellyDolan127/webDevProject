@@ -9,23 +9,21 @@ you re-size the webpage everything isn't overlapping and thrown around
 
 <html lang="en">
 
-    <head>
-        <title>First Page (Name of website?)</title><!---->
-        <meta charset="UTF-8">
-		<link href="style.css" type="text/css" rel="stylesheet" >
-		<link href="" type="image/png" rel="shortcut icon" /><!---->
-		<script type="text/javascript" src=""></script><!---->
-    </head>
+<head>
+	<title>First Page (Name of website?)</title>
+	<!---->
+	<meta charset="UTF-8">
+	<link href="style.css" type="text/css" rel="stylesheet">
+	<link href="" type="image/png" rel="shortcut icon" />
+	<!---->
+	<script type="text/javascript" src=""></script>
+	<!---->
+</head>
 
-	<body>
+<body>
 	<!--Top Bars for navigation-->
-	
-	<div id="topBar">
-	 
-	 <div id="logo">Site logo?(Picture?)</div>
-	 <div id="user">Username/login</div>
-	 
-	 <!--I've done login sessions before, but I used php as well as js.  Don't
+
+	<!--I've done login sessions before, but I used php as well as js.  Don't
 	 know exactly how to replicate it yet in js but this is what the php looked like:
 	 
 	 Basically, at the top of each page was: 
@@ -44,12 +42,10 @@ you re-size the webpage everything isn't overlapping and thrown around
      </div>
 	 Hopefully this helps us going forward...you guys might already know how to do this in js
 	 -->
-	 
-	</div>
-	
+
 	<div id="mainBar">
-	
-	<!--These are "dynamic" right now so we can add more and take away more without the formatting
+
+		<!--These are "dynamic" right now so we can add more and take away more without the formatting
 	getting messed up - only change with width in css.  
 	
 	We can change the whole look of it...I figured most websites have a top
@@ -60,30 +56,43 @@ you re-size the webpage everything isn't overlapping and thrown around
 	Don't care too much either way :)
 	
 	Just noting that: window.location = "pagePath" can be called to change windows-->
-	
-	<div class="mainBarButtons">
-	Tab1<!---->
-	</div>
-	<div class="mainBarButtons">
-	Tab2<!---->
-	</div>
-	<div class="mainBarButtons">
-	Tab3<!---->
-	</div>
-	<div class="mainBarButtons">
-	Tab4<!---->
-	</div>
-	<div class="mainBarButtons">
-	Tab5<!---->
-	</div>
-	<div class="mainBarButtons">
-	Tab6<!---->
-	</div>
-	
-	<!--I don't know what exactly our main page is going to display.  So I'm leaving it blank right now-->
-	
-	<!--I think we need to decide on a look and feel.  So what colors/general layout should we go for?-->
-	
-	</body>
+
+
+		<div id="mainBarPic">
+			SiteLogo
+		</div>
+		<div id="mainBarSearch">
+			<input type="text" />
+		</div>
+		<div class="mainBarButtons">
+			Account
+			<!---->
+		</div>
+		<div class="mainBarButtons">
+			Logout
+			<!---->
+		</div>
+
+		<div id="sidebar">
+			This area for pages <br /><br />
+			<a href=friends.html>Friends</a><br />
+			<a href=games.html>Games</a><br />
+			<a href=news.html>News</a><br />
+			<a href=profile.html>Profile</a><br />
+		</div>
+
+
+		<div id="mainPageFeed">
+			<div class="feed">
+				Gaming</div>
+			<div class="feed">
+				Gaming</div>
+			<div class="feed">
+				Gaming</div>
+			<div class="feed">
+				Gaming</div>
+		</div>
+
+</body>
 
 </html>
