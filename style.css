@@ -5,6 +5,28 @@ body{
     color: #29465d;
 }
 
+a:link {
+    text-decoration: none;    
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: dodgerblue;
+    text-decoration: underline;
+}
+
+a.itemTitleLink {
+    color: #008080;
+    font-size: 17pt;
+}
+
+a.review {
+    color: #008080;
+}
+
 #mainBar{
     white-space: nowrap; 
     display: inline-block;
@@ -54,8 +76,7 @@ body{
     text-align: center;
     font-size: 12pt;
     display: inline-block;
-    box-shadow: 1px 1px 3px #888888;
-	background-color: #ebebeb;
+	/*background: #ebebeb;* can't get this working*/
     margin-top: 19pt;
     margin-left: 2%;
     margin-right: 2%;
@@ -86,9 +107,10 @@ border-color: #888888;
     position: absolute;
     overflow: auto;
     border-style: solid;
-    border-color: black;
+    border-color: #FFFFFF;
+    background-color: #cfdad4;
     border-width: 1px;
-    box-shadow: 5px 5px 3px #888888;
+    box-shadow: 2px 2px 3px #888888;
     margin-top: 150px;
     margin-left: 30%;
     margin-right: 30%;

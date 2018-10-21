@@ -64,14 +64,15 @@ you re-size the webpage everything isn't overlapping and thrown around
 		<div id="mainBarSearch">
 			<input type="text" />
 		</div>
-		<div class="mainBarButtons">
-			Account
-			<!---->
-		</div>
-		<div class="mainBarButtons">
-			Logout
-			<!---->
-		</div>
+
+		<button type=button class="mainBarButtons" onsubmit="account.html">
+			SignUp </button>
+		<!--Will display "Account" if logged in-->
+
+		<button type=button onsubmit="Login.html" class="mainBarButtons">
+			Login </button>
+		<!--Will display "Logout" if logged in-->
+
 
 		<div id="sidebar">
 			This area for pages <br /><br />
