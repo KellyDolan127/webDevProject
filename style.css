@@ -54,6 +54,11 @@ a.review {
     color: #008080;
 }
 
+#logo {
+ width:130px;
+height:50px; 
+display:inline;
+}
 
 #mainBar{
     white-space: nowrap; 
