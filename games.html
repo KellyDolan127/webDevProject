@@ -1,17 +1,42 @@
-<html lang = "en">
-<head>
-<meta charset="utf-8">
-
-</head>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Games</title><!---->
+        <meta charset="UTF-8">
+		<link href="style.css" type="text/css" rel="stylesheet" >
+		<link href="" type="image/png" rel="shortcut icon" /><!---->
+		<script type="text/javascript" src=""></script><!---->
+    </head>
 <body>
-    <h1>Games Page</h1>
-    <a href=friends.html>Friends</a>
-    
-    <a href=main_page.html>Main Page</a>
+<div id="mainBar">
 
-    <a href=news.html>News</a>
+		<div id="mainBarPic">
+			SiteLogo
+		</div>
+		<div id="mainBarSearch">
+			<input type="text" />
+		</div>
+		
+		<form action="signUp.html">
+			<input type=submit class="mainBarButtons" value="SignUp" />
+		</form>
+		<!--Will display "Account" if logged in-->
+		
+		<form action="login.html">
+			<input type=submit class="mainBarButtons" value="Login" />
+		</form>
+		<!--Will display "Logout" if logged in-->
+</div>
 
-    <a href=profile.html>Profile</a>
+		<div id="sidebar">
+			This area for pages <br /><br />
+			<a href=index.html>Main</a><br />
+			<a href=friends.html>Friends</a><br />
+			<a href=games.html>Games</a><br />
+			<a href=news.html>News</a><br />
+			<a href=profile.html>Profile</a><br />
+			<a href=forum.html>Forum</a><br />
+		</div>
 
 </body>
 </html>
