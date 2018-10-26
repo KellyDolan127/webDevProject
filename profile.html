@@ -1,14 +1,46 @@
-<html lang = "en">
-<head>
-<meta charset="utf-8">
-<link href="profile-style.css" type="text/css" rel="stylesheet">
-</head>
+<!DOCTYPE html>
+ <head>
+        <title>Profile</title><!---->
+        <meta charset="UTF-8">
+		<link href="style.css" type="text/css" rel="stylesheet" >
+		<link href="" type="image/png" rel="shortcut icon" /><!---->
+		<script type="text/javascript" src=""></script><!---->
+    </head>
 <body>
+<div id="mainBar">
+
+		<div id="mainBarPic">
+			SiteLogo
+		</div>
+		<div id="mainBarSearch">
+			<input type="text" />
+		</div>
+		
+		<form action="signUp.html">
+			<input type=submit class="mainBarButtons" value="SignUp" />
+		</form>
+		<!--Will display "Account" if logged in-->
+		
+		<form action="login.html">
+			<input type=submit class="mainBarButtons" value="Login" />
+		</form>
+		<!--Will display "Logout" if logged in-->
+
+		<div id="sidebar">
+			This area for pages <br /><br />
+			<a href=index.html>Main</a><br />
+			<a href=friends.html>Friends</a><br />
+			<a href=games.html>Games</a><br />
+			<a href=news.html>News</a><br />
+			<a href=profile.html>Profile</a><br />
+			<a href=forum.html>Forum</a><br />
+		</div>
+	</div>
+	<div id="mainProfile">
     <h1>Profile Page</h1>
     <p></p>
     <div id="profile">
-        <img id="profilePic" src="images\profile_pic.png" alt="profile pic">
-        <h3>My Profile</h3>
+        <img id="profilePic" src="arrow.png" alt="profile pic">
         <div class="profileInfo">
             <label>Birthday: </label> January 28, 1993 <br>
             <label>Gender: </label> Male <br>
@@ -34,5 +66,6 @@
             </table>
         </div>
     </div>
+	</div>	
 </body>
 </html>
