@@ -22,14 +22,18 @@ label {
 
 table {
     border-collapse: collapse;
-    width: 20%;
+}
+
+th {
+    background-color: red;
+    font-weight: bold;
 }
 
 table, td {
     border-style: solid;
     border-color: #888888;
     border-radius: 8px;
-	color: FFFFFF;
+	color: #FFFFFF;
 }
 
 a:link {
@@ -221,4 +225,13 @@ display:inline;
 .gameList {
     margin-top: 20px;
 	color: #FFFFFF;
+}
+
+#rankTable {
+    margin-left: 13%;
+    margin-right: 3%;
+}
+
+thead.th {
+    color: white;
 }
