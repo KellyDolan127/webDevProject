@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+ <head>
+        <title>Profile</title><!---->
+        <meta charset="UTF-8">
+		<link href="style.css" type="text/css" rel="stylesheet" >
+		<link href="" type="image/png" rel="shortcut icon" /><!---->
+		<script type="text/javascript" src=""></script><!---->
+    </head>
+<body>
+<div id="mainBar">
+
+		<div id="mainBarPic">
+			<img id="logo" src="logo.png" alt="Game Group Logo"/>
+		</div>
+		<div id="mainBarSearch">
+			<input type="text" />
+		</div>
+		
+		<form action="signUp.html">
+			<input type=submit class="mainBarButtons" value="SignUp" />
+		</form>
+		<!--Will display "Account" if logged in-->
+		
+		<form action="login.html">
+			<input type=submit class="mainBarButtons" value="Login" />
+		</form>
+		<!--Will display "Logout" if logged in-->
+
+		<div id="sidebar">
+			This area for pages <br /><br />
+			<a href=index.html>Main</a><br />
+			<a href=friends.html>Friends</a><br />
+			<a href=games.html>Games</a><br />
+			<a href=news.html>News</a><br />
+			<a href=profile.html>Profile</a><br />
+			<a href=forum.html>Forum</a><br />
+		</div>
+	</div>
+	<div id="mainProfile">
+        <div id="profileBar">
+            <button onclick="parent.location='profile.html'">Profile Main</button>
+            <button onclick="parent.location='profile_updateInfo.html'">Update Profile Info</button>
+            <button>My Stats</button>
+            <button>My Friends</button>
+            <button>Games Recommended For Me</button>
+        </div>
+    <h1>Update Profile Information</h1>
+    <p></p>
+    <div id="profile">
+        <p>
+            <form action='localhost:6000/steam/user/' method='GET'>
+                <button>Get Games</button>
+			</form>
+			<input type="submit" value="Start" onclick="submit()">
+
+<script type="text/javascript">
+
+    function submit() {
+		var url = 'localhost:6000/steam/user/';
+	
+		const xhr = new XMLHttpRequest();
+xhr.open('GET', 'localhost:6000/steam/user/');
+xhr.responseType = 'json';
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    alert('response', this.response); // JSON response  
+  }
+};
+xhr.send();
+
+    }
+
+</script>
+        </p>
+        
+        
+    </div>
+	</div>	
+</body>
+</html>
