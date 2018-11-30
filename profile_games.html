@@ -5,8 +5,36 @@
 		<link href="style.css" type="text/css" rel="stylesheet" >
 		<link href="" type="image/png" rel="shortcut icon" /><!---->
 		<script type="text/javascript" src=""></script><!---->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
-<body>
+<body onload="callAPI()">
+<script>
+
+function callAPI(){
+
+$(document).ready(function(){
+ 
+ $=jQuery.noConflict();
+
+	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:3000/steam/gameList", function (data, textStatus, jqXHR) {
+
+		var jsonData = JSON.stringify(data);
+		jsonData = jsonData.replace(/"/g, '');
+		var arr = jsonData.split(",");
+		alert(arr.length);
+		
+		var node = document.getElementById('gameList');
+		for (var i = 0; i < arr.length; i++){
+	    	node.innerHTML += ("<div class='feed'>"+ arr[i]+ "</div>");
+		}
+	 });
+
+});		
+}
+	
+</script>
+
+
 <div id="mainBar">
 
 		<div id="mainBarPic">
@@ -41,37 +69,12 @@
             <button onclick="parent.location='profile.html'">Profile Main</button>
             <button onclick="parent.location='profile_updateInfo.html'">Update Profile Info</button>
             <button>My Stats</button>
-            <button>My Friends</button>
+            <button onclick="parent.location='profile_friends.html'">My Friends</button>
             <button>Games Recommended For Me</button>
         </div>
-    <h1>Update Profile Information</h1>
+    <h1>Your Games</h1>
     <p></p>
-    <div id="profile">
-        <p>
-            <form action='localhost:6000/steam/user/' method='GET'>
-                <button>Get Games</button>
-			</form>
-			<input type="submit" value="Start" onclick="submit()">
-
-<script type="text/javascript">
-
-    function submit() {
-		var url = 'localhost:6000/steam/user/';
-	
-		const xhr = new XMLHttpRequest();
-xhr.open('GET', 'localhost:6000/steam/user/');
-xhr.responseType = 'json';
-xhr.onload = function(e) {
-  if (this.status == 200) {
-    alert('response', this.response); // JSON response  
-  }
-};
-xhr.send();
-
-    }
-
-</script>
-        </p>
+    <div id="gameList">
         
         
     </div>

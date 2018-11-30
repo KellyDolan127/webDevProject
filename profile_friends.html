@@ -4,9 +4,33 @@
         <meta charset="UTF-8">
 		<link href="style.css" type="text/css" rel="stylesheet" >
 		<link href="" type="image/png" rel="shortcut icon" /><!---->
-		<script type="text/javascript" src=""></script><!---->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
-<body>
+<body onload="callAPI()">
+<script>
+
+function callAPI(){
+
+$(document).ready(function(){
+ 
+ $=jQuery.noConflict();
+
+	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:3000/steam/friendList", function (data, textStatus, jqXHR) {
+
+		var jsonData = JSON.stringify(data);
+		jsonData = jsonData.replace(/"/g, '');
+		var arr = jsonData.split(",");
+		alert(arr.length);
+		
+		var node = document.getElementById('friendList');
+		for (var i = 0; i < arr.length; i++){
+	    	node.innerHTML += ("<div class='feed'>"+ arr[i]+ "</div>");
+		}
+	 });
+
+});		
+}
+</script>
 <div id="mainBar">
 
 		<div id="mainBarPic">
@@ -39,21 +63,18 @@
 	<div id="mainProfile">
         <div id="profileBar">
             <button onclick="parent.location='profile.html'">Profile Main</button>
+            <button onclick="parent.location='profile_updateInfo.html'">Update Profile Info</button>
             <button onclick="parent.location='profile_games.html'">My Games</button>
             <button>My Stats</button>
-            <button onclick="parent.location='profile_friends.html'">My Friends</button>
             <button>Games Recommended For Me</button>
         </div>
     <h1>Update Profile Information</h1>
     <p></p>
     <div id="profile">
-        <p>
-            First Name:<br/>
-            Last Name:<br/>
-            Birthday:<br/>
-            Gender:<br/>
-        </p>
+        <div id="friendList">
         
+        
+        </div>
         
     </div>
 	</div>	
