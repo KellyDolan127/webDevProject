@@ -132,18 +132,26 @@ app2.get('/steam/friendList', function(req, res) { //posting to our website
         function populateToSend(_callback){
         
             for (var i =1; i<a.length; i++){
+
                 var friendID = a[i].substring(a[i].indexOf(':"')+2, a[i].indexOf('",'));    
                 url = 'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/'
                     + '?key=EF6233DCF8DC8AFFB8419F82A085B4A1&steamids=' + friendID;
-            
+                
                     request.get(url, function(error, steamRes, steamBody) { //getting from steam
+                        
                         var temp =JSON.stringify(steamBody);
                         var t=JSON.parse(temp);
                         var a =t.split(",")
+                        var friendID2 = a[0].substring(a[0].indexOf('steamid":')+9, a[0].length);;
+                        friendID2=friendID2.replace(/"/g, '');
                         var username = a[3].substring(a[3].indexOf(':'), a[3].length);
                         username = username.replace(/"|:/g, '');
                         var link = a[5].substring(a[5].indexOf(':'), a[5].length);
                         link = link.replace(/"|:/g, '');
+                        link = link.replace("https", "https:");
+                        if (link == '1'){
+                         link = "https://steamcommunity.com/profiles/" + friendID2; 
+                        }
                         toSend["Friend" + k]=username;
                         toSend["URL" + k]=link;
                         k +=1;

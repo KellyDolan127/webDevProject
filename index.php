@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!-- 
 Any place I have an empty comment means we need to edit
@@ -17,48 +18,49 @@ you re-size the webpage everything isn't overlapping and thrown around
 	<link href="" type="image/png" rel="shortcut icon" />
 	<!---->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
-<body onload="callAPI()">
-		<script>
-		
-		function callAPI(){
-		
-		$(document).ready(function(){
-		 
-		 $=jQuery.noConflict();
-		
-			 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:5000/steam/news", function (data, textStatus, jqXHR) {
-		
-				var jsonData = JSON.stringify(data);
-				
-				//node.innerHTML += ("<div class='feed'>"+ jsonData + "</div>");
-			    jsonData = jsonData.replace(/"|}/g, '');
-				var arr = jsonData.split("newsBreakPointHere");		
-				var node = document.getElementById('news');
-				for (var i = 0; i < arr.length; i+=2){
-					//alert(i);
-					//var url = arr[i+1].substring(arr[i+1].indexOf(":")+1, arr[i+1].length);
-					var friendName = arr[i];//.substring(arr[i].indexOf(":")+1, arr[i].length);
-					node.innerHTML += ("<div class='feed'>"+ friendName + "</div>");
-				}
-			 });
-		
-			});		
-		}
-		</script>
 
+	<script>
+ 
+ $(document).ready(function(){
+ 
+ $=jQuery.noConflict();
+
+ $("button").click(function () {
+
+	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:3000/steam/user", function (data, textStatus, jqXHR) {
+
+		 alert(JSON.stringify(data));
+
+	 });
+
+ });
+
+});
+ 
+
+ 
+	</script>
+	<!---->
+</head>
+
+<body onload="populate()">	
 
 	<div id="mainBar">
 
 
-
 		<div id="mainBarPic">
-			<img id="logo" src="images/logo.png" alt="Game Group Logo"/>
+			<img id="logo" src="logo.png" alt="Game Group Logo"/>
 		</div>
 		<div id="mainBarSearch">
-			<!--<input type="text" />-->
+			<input type="text" />
 		</div>
-		
+        
+        <?php if (!isset($_SESSION['user']) && empty($_SESSION['user'])) {?>
+        <a href="login.php"> Login/Sign Up </a> <br>
+        <?php }else{ ?>
+        <a href="profileDisplay.php"> Welcome, 
+        <br> <?php echo $_SESSION['user']; ?> </a> <br> 
+     
 		<form action="signUp.html">
 			<input type=submit class="mainBarButtons" value="SignUp" />
 		</form>
@@ -80,10 +82,31 @@ you re-size the webpage everything isn't overlapping and thrown around
 			<a href=forum.html>Forum</a><br />
 		</div>
 
+<script>
+	function populate(){
+		
+	//var node = document.getElementById('mainPageFeed');
+	
+//	node.innerHTML += ("<div class='feed'> test</div>");
 
+var games = [];
+
+
+
+}
+</script>
+<button>here</button>
 		<div id="mainPageFeed">
-			<div id="news"> </div>
-			</div>
+			<div class="feed">
+				Gaming</div>
+			<div class="feed">
+				Gaming</div>
+			<div class="feed">
+				Gaming</div>
+			<div class="feed">
+				Gaming</div>
+		</div>
+
 </body>
 
 </html>

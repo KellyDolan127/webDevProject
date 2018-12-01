@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
 		<link href="style.css" type="text/css" rel="stylesheet" >
 		<link href="" type="image/png" rel="shortcut icon" /><!---->
+		<script type="text/javascript" src=""></script><!---->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 <body onload="callAPI()">
@@ -15,16 +16,16 @@ $(document).ready(function(){
  
  $=jQuery.noConflict();
 
-	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:3000/steam/friendList", function (data, textStatus, jqXHR) {
+	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:4000/steam/friendList", function (data, textStatus, jqXHR) {
 
 		var jsonData = JSON.stringify(data);
-		jsonData = jsonData.replace(/"/g, '');
-		var arr = jsonData.split(",");
-		alert(arr.length);
-		
+		jsonData = jsonData.replace(/"|}/g, '');
+		var arr = jsonData.split(",");		
 		var node = document.getElementById('friendList');
-		for (var i = 0; i < arr.length; i++){
-	    	node.innerHTML += ("<div class='feed'>"+ arr[i]+ "</div>");
+		for (var i = 0; i < arr.length; i+=2){
+			var url = arr[i+1].substring(arr[i+1].indexOf(":")+1, arr[i+1].length);
+			var friendName = arr[i].substring(arr[i].indexOf(":")+1, arr[i].length);
+	    	node.innerHTML += ("<div class='feed'><a href='" + url + "'>"+ friendName + "</a></div>");
 		}
 	 });
 
@@ -34,7 +35,7 @@ $(document).ready(function(){
 <div id="mainBar">
 
 		<div id="mainBarPic">
-			<img id="logo" src="logo.png" alt="Game Group Logo"/>
+			<img id="logo" src="images/logo.png" alt="Game Group Logo"/>
 		</div>
 		<div id="mainBarSearch">
 			<input type="text" />
