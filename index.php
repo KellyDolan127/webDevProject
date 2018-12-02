@@ -11,8 +11,9 @@ you re-size the webpage everything isn't overlapping and thrown around
 <html lang="en">
 
 <head>
-	<title>First Page (Name of website?)</title>
+	<title>Game Group - Home</title>
 	<!---->
+	<link rel="shortcut icon" type="image/png" href="images/logo.png"/>
 	<meta charset="UTF-8">
 	<link href="style.css" type="text/css" rel="stylesheet">
 	<link href="" type="image/png" rel="shortcut icon" />
