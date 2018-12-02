@@ -213,8 +213,9 @@ app3.get('/steam/gameType', function(req, res) { //posting to our website
                     k += 1;
                     //console.log(i);
                     var tag = $('a.app_tag', ele).text();
-                    tag = tag.replace(new RegExp('\n','g'),' ');
+                    tag = tag.replace(new RegExp('\n','g'),',');
                     tag = tag.replace(new RegExp('\t','g'),'');
+                    tag += ',';
                     //console.log(tag.trim());
                     //console.log('-----')
                     toSend[k + "_type"]=tag.trim();

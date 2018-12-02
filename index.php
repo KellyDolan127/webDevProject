@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start(); 
+ini_set('display_errors', '1');?>
 <!DOCTYPE html>
 <!-- 
 Any place I have an empty comment means we need to edit
@@ -13,101 +14,69 @@ you re-size the webpage everything isn't overlapping and thrown around
 <head>
 	<title>Game Group - Home</title>
 	<!---->
-	<link rel="shortcut icon" type="image/png" href="images/logo.png"/>
 	<meta charset="UTF-8">
 	<link href="style.css" type="text/css" rel="stylesheet">
 	<link href="" type="image/png" rel="shortcut icon" />
-	<!---->
+	<link rel="shortcut icon" href="favCon.png" type="image/png" sizes="16x16">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-	<script>
- 
- $(document).ready(function(){
- 
- $=jQuery.noConflict();
-
- $("button").click(function () {
-
-	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:3000/steam/user", function (data, textStatus, jqXHR) {
-
-		 alert(JSON.stringify(data));
-
-	 });
-
- });
-
-});
- 
-
- 
-	</script>
-	<!---->
 </head>
-
-<body onload="populate()">	
-
-	<div id="mainBar">
-
-
-		<div id="mainBarPic">
-			<img id="logo" src="logo.png" alt="Game Group Logo"/>
-		</div>
-		<div id="mainBarSearch">
-			<input type="text" />
-		</div>
-        
-        <?php if (!isset($_SESSION['user']) && empty($_SESSION['user'])) {?>
-        <a href="login.php"> Login/Sign Up </a> <br>
-        <?php }else{ ?>
-        <a href="profileDisplay.php"> Welcome, 
-        <br> <?php echo $_SESSION['user']; ?> </a> <br> 
-     
-		<form action="signUp.html">
-			<input type=submit class="mainBarButtons" value="SignUp" />
-		</form>
-		<!--Will display "Account" if logged in-->
+<body onload="callAPI()">
+		<script>
 		
-		<form action="login.html">
-			<input type=submit class="mainBarButtons" value="Login" />
-		</form>
-		<!--Will display "Logout" if logged in-->
-</div>
+		function callAPI(){
+		
+		$(document).ready(function(){
+		 
+		 $=jQuery.noConflict();
+		
+			 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:5000/steam/news", function (data, textStatus, jqXHR) {
+		
+				var jsonData = JSON.stringify(data);
+				
+				//node.innerHTML += ("<div class='feed'>"+ jsonData + "</div>");
+			    jsonData = jsonData.replace(/"|}/g, '');
+				var arr = jsonData.split("newsBreakPointHere");		
+				var node = document.getElementById('news');
+				for (var i = 2; i < arr.length; i+=2){
+					//alert(i);
+					//var url = arr[i+1].substring(arr[i+1].indexOf(":")+1, arr[i+1].length);
+					var newsItem = arr[i];//.substring(arr[i].indexOf(":")+1, arr[i].length);
+					//node.innerHTML += ("<div class='feedNews'>"+ newsItem + "</div>");
+					var title = newsItem.substring(newsItem.indexOf("title")+8, newsItem.indexOf("url")-3);
+					var urlToNews =newsItem.substring(newsItem.indexOf("url")+6, newsItem.indexOf("is_ext")-3);
+					var desc = (newsItem.substring(newsItem.indexOf("contents")+11, newsItem.indexOf("<img src")));
+					if (title.length > 9){
+					node.innerHTML += "<div class='feedNews'><h4>"+ title + "</h4><br><br><a href='" + urlToNews + "'>" + 
+						urlToNews +"</a><br><br>" +desc+ "</div>";
+					}
+				}
+			 });
+		
+			});		
+		}
+		</script>
+
+<?php
+  if (isset($_POST['username'])){
+		$_SESSION['user'] = $_POST['username'];
+	}
+?>
+<?php include("mainBar.php"); ?>
 
 		<div id="sidebar">
 			This area for pages <br /><br />
-			<a href=index.html>Main</a><br />
-			<a href=friends.html>Friends</a><br />
-			<a href=games.html>Games</a><br />
-			<a href=news.html>News</a><br />
-			<a href=profile.html>Profile</a><br />
-			<a href=forum.html>Forum</a><br />
+			<a href=index.php>Main</a><br />
+			<a href=games.php>Games</a><br />
+			<a href=profile.php>Profile</a><br />
+			<a href=forum.php>Forum</a><br />
 		</div>
-
-<script>
-	function populate(){
-		
-	//var node = document.getElementById('mainPageFeed');
-	
-//	node.innerHTML += ("<div class='feed'> test</div>");
-
-var games = [];
-
-
-
-}
-</script>
-<button>here</button>
+		<h1 class='innerHeader'>&nbspNews</h1>
+		<button id="refresh" onclick="window.location.href=window.location.href">Refresh News</button>
 		<div id="mainPageFeed">
-			<div class="feed">
-				Gaming</div>
-			<div class="feed">
-				Gaming</div>
-			<div class="feed">
-				Gaming</div>
-			<div class="feed">
-				Gaming</div>
-		</div>
-
+			
+			<div id="news"> </div>
+			
+			</div>
 </body>
 
 </html>

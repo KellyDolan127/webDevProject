@@ -29,7 +29,7 @@ table, td {
     border-style: solid;
     border-color: #888888;
     border-radius: 8px;
-	color: FFFFFF;
+	color: #FFFFFF;
 }
 
 a:link, a:visited {
@@ -179,6 +179,23 @@ display:inline;
     margin-right: 30%;
     height: 43%;
     width: 40%;
+}
+
+#updateInfoP{
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    border-style: double;
+    padding: 10px;
+    font-size: 10pt;
+}
+
+.important{
+    font-size: 14pt;
+    text-decoration: underline;
+}
+
+.profileButtons{
+    background-color: #cfdad4;
 }
 
 #centerBoxContent {
