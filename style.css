@@ -50,6 +50,12 @@ a.review {
     color: #008080;
 }
 
+#refresh{
+    margin-top:57px;
+    background-color: #cfdad4;
+    float:right;
+}
+
 #logo {
  width:130px;
 height:50px; 
