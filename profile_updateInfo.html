@@ -1,11 +1,11 @@
 <!DOCTYPE html>
  <head>
-        <title>Game Group - Profile</title><!---->
-        <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
+        <title>Game Group - Profile Update</title><!---->
         <meta charset="UTF-8">
 		<link href="style.css" type="text/css" rel="stylesheet" >
-		<link href="" type="image/png" rel="shortcut icon" /><!---->
+		<link rel="shortcut icon" href="favCon.png" type="image/png" sizes="16x16">
 		<script type="text/javascript" src=""></script><!---->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 <body>
 <div id="mainBar">
@@ -28,32 +28,30 @@
 		<!--Will display "Logout" if logged in-->
 
 		<div id="sidebar">
-			This area for pages <br /><br />
-			<a href=index.html>Main</a><br />
-			<a href=friends.html>Friends</a><br />
-			<a href=games.html>Games</a><br />
-			<a href=news.html>News</a><br />
-			<a href=profile.html>Profile</a><br />
-			<a href=forum.html>Forum</a><br />
+				This area for pages <br /><br />
+				<a href=index.html>Main</a><br />
+				<a href=games.html>Games</a><br />
+				<a href=profile.html>Profile</a><br />
+				<a href=forum.html>Forum</a><br />
 		</div>
 	</div>
 	<div id="mainProfile">
         <div id="profileBar">
-            <button onclick="parent.location='profile.html'">Profile Main</button>
-            <button onclick="parent.location='profile_games.html'">My Games</button>
-            <button>My Stats</button>
-            <button onclick="parent.location='profile_friends.html'">My Friends</button>
-            <button>Games Recommended For Me</button>
+            <button class="profileButtons" onclick="parent.location='profile.html'">Profile Main</button>
+            <button class="profileButtons" onclick="parent.location='profile_games.html'">My Games</button>
+            <button class="profileButtons" onclick="parent.location='profile_stats.html'">My Stats</button>
+            <button class="profileButtons" onclick="parent.location='profile_friends.html'">My Friends</button>
+            <button class="profileButtons" onclick="parent.location='profile_gamesRec.html'">Games Recommended For Me</button>
         </div>
     <h1>Update Profile Information</h1>
     <p></p>
     <div id="profile">
-        <p>
-            First Name:<br/>
-            Last Name:<br/>
-            Birthday:<br/>
-            Gender:<br/>
-        </p>
+
+			<form id="updateInfoP" onsubmit="" action="" method="POST" name="updateInfoP"> <!---->
+				<label>First Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="width: 200px;" maxlength="20" pattern="([A-Za-z0-9]+)" title="Only use letters and numbers" required name="fName" id="fName"/> <br><br>  
+				<label>Last Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="width: 200px;" maxlength="20" pattern="([A-Za-z0-9]+)" title="Only use letters and numbers" required name="lName" id="lName"/> <br><br>  
+				<label>Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" style="width: 200px;" maxlength="40" required name="email" id="email"/> <br><br>  
+			</form>
         
         
     </div>

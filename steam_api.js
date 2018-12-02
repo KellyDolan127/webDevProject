@@ -33,7 +33,7 @@ var games = [];
 
 
 //returns user owned games
-app.get('/steam/user', function(req, res) { //posting to our website
+//app.get('/steam/gameList', function(req, res) { //posting to our website
 
     ///ISteamUser/GetFriendList/v1/
     var url = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v1/' +
@@ -46,16 +46,22 @@ app.get('/steam/user', function(req, res) { //posting to our website
         var temp =JSON.stringify(steamBody);
         var toSend ={};
         var i = 1;
-
+        var totalPlayTime = 0;
         games = temp.split('appid');
         function populateToSend(_callback){
+        //console.log(temp);
         games.forEach(function (elem){
+            console.log(elem);
+            var playtime = elem;
+            playtime = playtime.substring(playtime.indexOf("forever")+10, playtime.indexOf("}"));
             elem = elem.replace(/^\D+/g, '');
             var num = elem.indexOf(','); 
             elem = elem.substring(0, num);
             
+            
             request.get(urlGame + elem, function(gameError, gameSteamRes, gameSteamBody) { //getting from stea
                 var gameName = JSON.stringify(gameSteamBody);
+                //console.log(gameName);
                 var toStart =gameName.indexOf ('Name');
                 var toRemove =gameName.indexOf ('gameV');
                 gameName = gameName.substring(toStart, toRemove);
@@ -64,8 +70,13 @@ app.get('/steam/user', function(req, res) { //posting to our website
                 gameName = gameName.replace('Name:', '');
                 if (gameName != null && gameName != ''){
                    // console.log(gameName.replace('Name:', ''));
-                    toSend["Game" + i]=gameName.replace('Name:', '');
-                    //console.log(toSend);
+                   // toSend["Game" + i]=gameName.replace('Name:', '');
+                    console.log(gameName.replace('Name:', ''));
+                    //console.log(playtime);
+                    //totalPlayTime += parseInt(playtime);
+                    //console.log(totalPlayTime);
+                    console.log("-----------------");
+                    
                     i++;
                     // res.send(gameName.replace('Name:', ''));
                 }
@@ -76,19 +87,17 @@ app.get('/steam/user', function(req, res) { //posting to our website
         }
         function send(){
             populateToSend(function(){
-            setTimeout(function(){res.send(toSend);}, 3000);
+            //setTimeout(function(){res.send(toSend);}, 3000);
             });
         }
         send();
         
     });
 
-});
+//});
 
 
-var port = 6000;
+var port = 3000;
+//var server = app.listen(port);
 
-var server = app.listen(port);
-
-//console.log('Navigate to http://localhost:4000/steam/user');
 

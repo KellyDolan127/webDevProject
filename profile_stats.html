@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 		<link href="style.css" type="text/css" rel="stylesheet" >
 		<link rel="shortcut icon" href="favCon.png" type="image/png" sizes="16x16">
-		<script type="text/javascript" src=""></script><!---->
+		<script type="text/javascript" src="steam_api3.js"></script><!---->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 <body onload="callAPI()">
@@ -16,21 +16,17 @@ $(document).ready(function(){
  
  $=jQuery.noConflict();
 
-	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:3000/steam/gameList", function (data, textStatus, jqXHR) {
+	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:6000/steam/a", function (data, textStatus, jqXHR) {
 
 		var jsonData = JSON.stringify(data);
 		jsonData = jsonData.replace(/"/g, '');
-		var arr = jsonData.split(",");
+		//var arr = jsonData.split(",");
+		//alert(arr.length);
 		
 		var node = document.getElementById('gameList');
-		for (var i = 0; i < arr.length; i++){
-			var playTime = arr[i].substring(arr[i].indexOf("PlayTime")+9, arr[i].indexOf("Game"));
-			var gameName = arr[i].substring(arr[i].indexOf("Game")+5, arr[i].length);
-			gameName = gameName.replace("}", "");
-			node.innerHTML += ("<div class='feed'>"+ "You've played:&nbsp&nbsp&nbsp" + 
-				"<span class='important'>" + gameName + "</span>&nbsp&nbspfor&nbsp&nbsp<span class='important'>" 
-					+ playTime + "</span>&nbsp&nbsphours. </div>");
-		}
+		//for (var i = 0; i < arr.length; i++){
+	    	node.innerHTML += ("<div class='feed'>"+ jsonData + "</div>");
+		//}
 	 });
 
 });		
@@ -59,22 +55,24 @@ $(document).ready(function(){
 		<!--Will display "Logout" if logged in-->
 
 		<div id="sidebar">
-				This area for pages <br /><br />
-				<a href=index.html>Main</a><br />
-				<a href=games.html>Games</a><br />
-				<a href=profile.html>Profile</a><br />
-				<a href=forum.html>Forum</a><br />
+                This area for pages <br /><br />
+                <a href=index.html>Main</a><br />
+                <a href=games.html>Games</a><br />
+                <a href=profile.html>Profile</a><br />
+                <a href=forum.html>Forum</a><br />
 		</div>
 	</div>
 	<div id="mainProfile">
         <div id="profileBar">
+                <input id="foo "runat="http://ec2-52-91-22-53.compute-1.amazonaws.com" type="button" onserverclick="getAchievements(214340)" />
+
 				<button class="profileButtons" onclick="parent.location='profile.html'">Profile Main</button>
 				<button class="profileButtons" onclick="parent.location='profile_updateInfo.html'">Update Profile Info</button>
-				<button class="profileButtons" onclick="parent.location='profile_stats.html'">My Stats</button>
+				<button class="profileButtons" onclick="parent.location='profile_games.html'">My Games</button>
 				<button class="profileButtons" onclick="parent.location='profile_friends.html'">My Friends</button>
 				<button class="profileButtons" onclick="parent.location='profile_gamesRec.html'">Games Recommended For Me</button>
         </div>
-    <h1>My Games</h1>
+    <h1>Your Games</h1>
     <p></p>
     <div id="gameList">
         
