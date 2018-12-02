@@ -1,7 +1,8 @@
 var express = require('express');
-
+var cheerio = require('cheerio');
 var app = express();
 var app2= express();
+var app3= express();
 var request = require('request');
 
 // my key EF6233DCF8DC8AFFB8419F82A085B4A1
@@ -54,6 +55,8 @@ app.get('/steam/gameList', function(req, res) { //posting to our website
         games = temp.split('appid');
         function populateToSend(_callback){
         games.forEach(function (elem){
+            var playTime = elem;
+            playTime = playTime.substring(playTime.indexOf("forever")+10, playTime.indexOf("}"));
             elem = elem.replace(/^\D+/g, '');
             var num = elem.indexOf(','); 
             elem = elem.substring(0, num);
@@ -91,7 +94,7 @@ app.get('/steam/gameList', function(req, res) { //posting to our website
                 gameName = gameName.replace(/['"\\,]+/g,'');
                 gameName = gameName.replace('Name:', '');
                 if (gameName != null && gameName != ''){
-                    toSend["Game" + i]=gameName.replace('Name:', '');
+                    toSend[i + "_PlayTime:" + playTime + "Game"]=gameName.replace('Name:', '');
                     
                     i++;
                 }
@@ -173,7 +176,72 @@ app2.get('/steam/friendList', function(req, res) { //posting to our website
 });
 
 
+//TYPE/////////////////////////////////////////////////////////////////////////////////////////
+
+app3.get('/steam/gameType', function(req, res) { //posting to our website
+    var k = 0;
+    var url = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v1/' +
+        '?key=EF6233DCF8DC8AFFB8419F82A085B4A1&steamid=76561198087236531';// +
+        var toSend = {};
+    request.get(url, function(error, steamRes, steamBody) { //getting from steam        
+
+        var temp =JSON.stringify(steamBody);
+        var toSend ={};
+        var i = 1;
+        var totalPlayTime = 0;
+        games = temp.split('appid');
+        var urlGame = 'https://store.steampowered.com/app/'; 
+        function populateToSend(_callback){
+        //console.log(temp);
+
+
+        games.forEach(function (elem){
+           // console.log(elem);
+            var playtime = elem;
+            playtime = playtime.substring(playtime.indexOf("forever")+10, playtime.indexOf("}"));
+            elem = elem.replace(/^\D+/g, '');
+            var num = elem.indexOf(','); 
+            elem = elem.substring(0, num);
+    
+           // console.log(urlGame + elem);
+              request(urlGame + elem, function (err, res, html){
+                 // console.log(html);
+                var answer = "";
+                var $ = cheerio.load(html);
+                
+                $('div.glance_tags.popular_tags').each(function(i, ele) {
+                    k += 1;
+                    //console.log(i);
+                    var tag = $('a.app_tag', ele).text();
+                    tag = tag.replace(new RegExp('\n','g'),' ');
+                    tag = tag.replace(new RegExp('\t','g'),'');
+                    //console.log(tag.trim());
+                    //console.log('-----')
+                    toSend[k + "_type"]=tag.trim();
+                   
+                });
+ 
+            });
+    
+        });      
+       
+        _callback();    
+        }
+
+        function send(){
+            populateToSend(function(){
+            setTimeout(function(){res.send(toSend);}, 3000);
+            });
+        }
+        send();
+        
+    });
+
+});
+
+
 var server = app.listen(3000);
 var server2 = app2.listen(4000);
+var server3 = app3.listen(1000);
 
 

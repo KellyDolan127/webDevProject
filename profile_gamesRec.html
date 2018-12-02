@@ -16,17 +16,17 @@ $(document).ready(function(){
  
  $=jQuery.noConflict();
 
-	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:3000/steam/gameList", function (data, textStatus, jqXHR) {
+	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:1000/steam/gameType", function (data, textStatus, jqXHR) {
 
 		var jsonData = JSON.stringify(data);
-		jsonData = jsonData.replace(/"/g, '');
-		var arr = jsonData.split(",");
-		alert(arr.length);
+		//jsonData = jsonData.replace(/"/g, '');
+		//var arr = jsonData.split(",");
+		//alert(arr.length);
 		
 		var node = document.getElementById('gameList');
-		for (var i = 0; i < arr.length; i++){
-	    	node.innerHTML += ("<div class='feed'>"+ arr[i]+ "</div>");
-		}
+		//for (var i = 0; i < arr.length; i++){
+	    	node.innerHTML += ("<div class='feed'>"+ jsonData+ "</div>");
+		//}
 	 });
 
 });		
@@ -66,11 +66,11 @@ $(document).ready(function(){
         <div id="profileBar">
 				<button class="profileButtons" onclick="parent.location='profile.html'">Profile Main</button>
 				<button class="profileButtons" onclick="parent.location='profile_updateInfo.html'">Update Profile Info</button>
-				<button class="profileButtons" onclick="parent.location='profile_games'">My Games</button>
+				<button class="profileButtons" onclick="parent.location='profile_games.html'">My Games</button>
 				<button class="profileButtons" onclick="parent.location='profile_stats.html'">My Stats</button>
 				<button class="profileButtons" onclick="parent.location='profile_friends.html'">My Friends</button>
         </div>
-    <h1>Your Games</h1>
+    <h1>Your Most-Played Genres</h1>
     <p></p>
     <div id="gameList">
         
