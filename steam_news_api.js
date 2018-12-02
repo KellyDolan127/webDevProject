@@ -30,7 +30,7 @@ app.get('/steam/news', function(req, res) { //posting to our website
 
         var temp =JSON.stringify(steamBody);
         var toSend ={};
-        var i = 1;
+        var k = 1;
 
         games = temp.split('appid');
         function populateToSend(_callback){
@@ -38,7 +38,7 @@ app.get('/steam/news', function(req, res) { //posting to our website
             elem = elem.replace(/^\D+/g, '');
             var num = elem.indexOf(','); 
             elem = elem.substring(0, num);
-            i +=1;
+            k +=1;
             var newsAPI = 'https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/' + '?key=EF6233DCF8DC8AFFB8419F82A085B4A1&appid='; 
             
                 request.get(newsAPI + elem, function(gameError, gameSteamRes, gameSteamBody) { //getting from stea
@@ -47,7 +47,7 @@ app.get('/steam/news', function(req, res) { //posting to our website
                     var g = gameName.split('appid');
                     //console.log(gameName);
                     for (var i=0; i<g.length; i++){
-                       toSend["newsBreakPointHere" + i] = (g[i]);
+                       toSend[k + "_newsBreakPointHere" + i] = (g[i]);
                    /*
                         console.log('----------------------------------------------------');
                         console.log("title:   " +g[i].substring(0, g[i].indexOf("url")));

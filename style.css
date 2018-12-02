@@ -22,26 +22,18 @@ label {
 
 table {
     border-collapse: collapse;
-}
-
-th {
-    background-color: red;
-    font-weight: bold;
+    width: 20%;
 }
 
 table, td {
     border-style: solid;
     border-color: #888888;
     border-radius: 8px;
-	color: #FFFFFF;
+	color: FFFFFF;
 }
 
-a:link {
-    text-decoration: none;    
-}
-
-a:visited {
-    color: black;
+a:link, a:visited {
+    color: rgb(230, 113, 59);    
 }
 
 a:hover {
@@ -151,6 +143,23 @@ display:inline;
    border-color: #888888;
 }
 
+.feedNews{
+    color: #FFFFFF;
+    width: 97%;
+    padding: 5px;
+    margin-bottom:10px;
+    background-color: #29465d;
+    border-style: solid;
+    border-color: #888888;
+ }
+
+ .innerHeader{
+    background-image: url("images/banner.png") ;
+    background-repeat: repeat-x;
+    margin-bottom: -50px;
+    margin-left: 50px;
+ }
+
 #centerBox {
     position: absolute;
     overflow: auto;
@@ -225,13 +234,4 @@ display:inline;
 .gameList {
     margin-top: 20px;
 	color: #FFFFFF;
-}
-
-#rankTable {
-    margin-left: 13%;
-    margin-right: 3%;
-}
-
-thead.th {
-    color: white;
 }
