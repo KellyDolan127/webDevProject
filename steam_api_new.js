@@ -94,7 +94,24 @@ app.get('/steam/gameList', function(req, res) { //posting to our website
                 gameName = gameName.replace(/['"\\,]+/g,'');
                 gameName = gameName.replace('Name:', '');
                 if (gameName != null && gameName != ''){
-                    toSend[i + "_PlayTime:" + playTime + "Game"]=gameName.replace('Name:', '');
+                    if (gameName.indexOf("ValveTestApp") > -1 ){//////////////////////////////////////////
+
+                        var urlToGetRealNameDamnit= 'https://store.steampowered.com/app/';
+    
+                        request(urlToGetRealNameDamnit + elem, function (err, res, html){
+    
+                            var $ = cheerio.load(html);   
+                            var tag = $('div.apphub_AppName').text();
+                            tag = tag.replace(new RegExp('\n','g'),' ');
+                            tag = tag.replace(new RegExp('\t','g'),'');
+
+                            toSend[i + "_PlayTime:" + playTime + "Game"]=tag.trim();
+        
+                        }); ////////////////////////////////////////////////////////////////
+                       
+                    }else{
+                        toSend[i + "_PlayTime:" + playTime + "Game"]=gameName.replace('Name:', '');
+                       }
                     
                     i++;
                 }
