@@ -46,9 +46,17 @@ you re-size the webpage everything isn't overlapping and thrown around
 					var urlToNews =newsItem.substring(newsItem.indexOf("url")+6, newsItem.indexOf("is_ext")-3);
 					var desc = (newsItem.substring(newsItem.indexOf("contents")+11, newsItem.indexOf("<img src")));
 					if (title.length > 9){
-					node.innerHTML += "<div class='feedNews'><h4>"+ title + "</h4><br><br><a href='" + urlToNews + "'>" + 
+					/*node.innerHTML += "<div class='feedNews'><h4>"+ title + "</h4><br><br><a href='" + urlToNews + "'>" + 
 						urlToNews +"</a><br><br>" +desc+ "</div>";
+					}*/
+					if (urlToNews.indexOf("community") > -1|| urlToNews.indexOf(".com/news/") > -1){
+						node.innerHTML += "<div class='feedNews'><h4>"+ title + "</h4><br><br><a href='" + urlToNews + "'>" + 
+						urlToNews +"</a></div>";
+					} else{
+					node.innerHTML += "<div class='feedNews'><h4>"+ title + "</h4><br><br><a href='" + urlToNews + "'>" + 
+						urlToNews +"</a><br><br><iframe class='iFrameClass' src='" +urlToNews+ "'></iframe></div>";
 					}
+				}
 				}
 			 });
 		
@@ -67,7 +75,6 @@ you re-size the webpage everything isn't overlapping and thrown around
 			This area for pages <br /><br />
 			<a href=index.php>Main</a><br />
 			<a href=games.php>Games</a><br />
-			<a href=profile.php>Profile</a><br />
 			<a href=forum.php>Forum</a><br />
 		</div>
 		<h1 class='innerHeader'>&nbspNews</h1>

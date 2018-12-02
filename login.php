@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +15,7 @@
     <div id="centerBox">
         <div id="centerBoxContent">
             <span class="bold">Sign In: </span><br><br>
-            <form id="loginForm" onsubmit="return check();" action="" method="POST" name="loginName">
+            <form id="loginForm" onsubmit="return check();" action="index.php" method="POST" name="loginName">
                 <label>Username:</label> <input type="text" required style="width: 200px;" maxlength="20" name="username"
                     id="username" />
                 <br><br>

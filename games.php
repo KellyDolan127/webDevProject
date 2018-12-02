@@ -14,7 +14,6 @@
 			This area for pages <br /><br />
 			<a href=index.php>Main</a><br />
 			<a href=games.php>Games</a><br />
-			<a href=profile.php>Profile</a><br />
 			<a href=forum.php>Forum</a><br />
 		</div>
 		<div id="rankTable">

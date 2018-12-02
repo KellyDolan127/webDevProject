@@ -85,6 +85,11 @@ display:inline;
 	max-width:150px;
 }
 
+.iFrameClass{
+    height: 400px;
+    width: 95%;
+}
+
 #mainBarPic{
     float:left;
     position:relative;
@@ -100,11 +105,15 @@ display:inline;
     float:left;
     position:relative;
     display: inline-block;
-    margin-top: 30pt;
+    margin-top: 10pt;
+    padding-bottom:20pt;
     margin-left: 2%;
     margin-right: 2%;
     width: 40%;
     height: 50%;
+    color:#F36D2E;
+    font-size: 30pt;
+    font-family: "Arial Black", Gadget, sans-serif;
 }
 
 .mainBarButtons{
@@ -195,6 +204,7 @@ display:inline;
 }
 
 .profileButtons{
+    margin-top:10px;
     background-color: #cfdad4;
 }
 
