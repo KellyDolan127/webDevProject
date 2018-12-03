@@ -7,7 +7,7 @@
 
 Members:
    Kelly Dolan
-      -Main page, profile games/stats/friends, api/web scrape, php session handling,
+      -Main page, profile games/stats/friends, logout, aboutUs, mainBar/profileBar, api/web scrape, php session handling,
        HTML/CSS main structure, php conversion, logo/favcon creation, README
    Daniel Rodriguez
       -Login/Signup, concept of look-and-feel, Server setup and configuration and documentation, 
@@ -20,6 +20,7 @@ Members:
 Project:
    Title: Game Group
    Purpose: Gaming website
+   Website link: http://ec2-52-91-22-53.compute-1.amazonaws.com
    GitHub: https://github.com/KellyDolan127/webDevProject
 
 
@@ -50,3 +51,30 @@ Languages:
    Javascript
    SQL
    
+Files:
+  index.php (main page)
+  login.php
+  logout.php
+  signup.php
+  mainBar.php (not stand-alone: imported to other pages)
+  profileBar.php (not stand-alone: imported to other pages)
+  profile.php
+  profile_friends.php
+  profile_games.php
+  profile_gamesRec.php
+  profile_stats.php
+  profile_updateInfo.php
+  games.php
+  forum.php
+  aboutUs.php
+  
+  steam_api_new.js (Run on Node backend server: Used for profileRec/Stat/Games/Friends)
+  steam_news_api.js (Run on Node backend server: Used for main)
+  external.js (signup)
+  
+  style.css
+  
+  banner.png
+  favCon.png
+  logo.png
+  profile_pic.png (generic)
