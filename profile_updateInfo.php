@@ -12,6 +12,10 @@
 	<?php 
 		include("mainBar.php");
 		$profileUser = "'".$_SESSION['user']."'";
+		//$target_dir = "images/";
+		//$target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
+		//$uploadOk = 1;
+		//$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 		if(isset($_POST['updateInfo'])){
 			$link = mysqli_connect("localhost", "root", "", "websitedb");
 			if($link === false){
@@ -20,8 +24,14 @@
 			$newName = "'".$_POST["gName"]."'";
 			$newUserName = "'".$_POST["uName"]."'";
 			$newEmail = "'".$_POST["email"]."'";
+			$check = getimagesize($_FILES["imageUpload"]["tmp_name"]);
+			/*if($check !== false){
+				$uploadOk = 1;
+				if(move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)){
+					$imgPath = "'".$target_file."'";
+				}
+			}*/
 			$sql = "UPDATE users SET name = $newName, username = $newUserName, email = $newEmail WHERE username = $profileUser";
-			
 			$result = mysqli_query($link,$sql);
 			$_SESSION['user'] = $_POST["uName"];
 			header("Location: profile.php");
@@ -38,6 +48,7 @@
 				<label>Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="width: 200px;" maxlength="20" required name="gName" id="gName"/> <br><br>  
 				<label>Username:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="width: 200px;" maxlength="20" pattern="([A-Za-z0-9]+)" title="Only use letters and numbers" required name="uName" id="uName"/> <br><br>  
 				<label>Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" style="width: 200px;" maxlength="40" required name="email" id="email"/> <br/><br/>
+				<!--<label>Upload Image:<label><input type="file" name="imageUpload" id="imageUpload"/><br/><br/>-->
 				<input type="submit" name="updateInfo" value="Update"/>
 			</form>
         
