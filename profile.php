@@ -34,6 +34,7 @@
                         $emailAddr = $row["email"];
                         $birthday = $row["birthday"];
                         $aboutMe = $row['about_me'];
+                        $profilePicture = $row['profilePic'];
 
                     }
                     mysqli_free_result($result);
@@ -48,7 +49,7 @@
     <h1><?php echo $myName; ?></h1>
     <p></p>
     <div id="profile">
-        <img id="profilePic" src="images/profile_pic.png" alt="profile pic">
+        <img id="profilePic" src="<?php echo $profilePicture; ?>" alt="profile pic">
         <div class="profileInfo">
             <?php
                 echo "<label>SteamID: </label>".$steamId."<br/>";
