@@ -33,7 +33,7 @@
 		<div id="mainPageFeed">
 			
 			<div id="news"> 
-			<div class="feed">
+			<div id="makeWhiteText">
 			Welcome to the Game Group website.  This website started as an ambitious dream, and although it still
             has a long way to go, this site still offers many user functionalities:<br>
 				<ul><li>Login/Logout/SignUp</li>

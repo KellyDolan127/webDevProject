@@ -71,6 +71,10 @@ display:inline;
     background-color: #cfdad4; 
 }
 
+#makeWhiteText{
+	color: #FFFFFF;
+}
+
 #sidebar {
     padding: 2px;
     clear: both;
