@@ -20,7 +20,7 @@ Members:
 Project:
    Title: Game Group
    Purpose: Gaming website
-   Website link: http://ec2-52-91-22-53.compute-1.amazonaws.com
+   Website link: http://ec2-54-88-99-94.compute-1.amazonaws.com/
    GitHub: https://github.com/KellyDolan127/webDevProject
 
 
@@ -72,7 +72,8 @@ Files:
   aboutUs.php
   
   steam_api_new.js (Run on Node backend server: Used for profileRec/Stat/Games/Friends)
-  steam_news_api.js (Run on Node backend server: Used for main and games)
+  steam_news_api.js (Run on Node backend server: Used for main)
+  scraper_Top.js (Run on Node backend server: Used for games)
   external.js (signup)
   
   style.css
