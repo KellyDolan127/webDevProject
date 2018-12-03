@@ -7,7 +7,7 @@ var app = express();
 
 
 app.get('/steam/gameTop', function(req, res) { //posting to our website
-    var url = 'https://www.ranker.com/list/most-popular-video-games-today/ranker-games'
+    var url = 'https://www.ranker.com/list/most-popular-video-games-today/ranker-games';
         var toSend = {};
     
         function populateToSend(_callback){
@@ -20,15 +20,14 @@ app.get('/steam/gameTop', function(req, res) { //posting to our website
                 
                 //$('div.glance_tags.popular_tags').each(function(i, ele) {
                     
-                    var list = $('.listItem__title listItem__title--link black', ele).text();
+                    var list = $('.listItem__title listItem__title--link black');
 					console.log(list.length);  //should be 49 or 50
 					
 					for (var i=0; i< list.length; i++){
-						list = tag.replace(new RegExp('\n','g'),' ');
-						list = tag.replace(new RegExp('\t','g'),'');
-						//console.log(tag.trim());
-						//console.log('-----')
-						toSend[i + "_gameListTop"]=list[i].trim(); 
+						var temp = list[i].text();
+						temp = temp.replace(new RegExp('\n','g'),' ');
+						temp = temp.replace(new RegExp('\t','g'),'');
+						toSend[i + "_gameListTop"]=temp.trim(); 
 					}
                 //});
  
