@@ -17,7 +17,7 @@ $(document).ready(function(){
  
  $=jQuery.noConflict();
 
-	 $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:3000/steam/gameList", function (data, textStatus, jqXHR) {
+	 $.get("http://ec2-54-88-99-94.compute-1.amazonaws.com:3000/steam/gameList", function (data, textStatus, jqXHR) {
 
 		var jsonData = JSON.stringify(data);
 		jsonData = jsonData.replace(/"/g, '');

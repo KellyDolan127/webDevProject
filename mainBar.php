@@ -28,7 +28,7 @@
                 <?php
                   if (isset($_POST['logout'])){
                     session_destroy();
-                    header("location:"."http://ec2-52-91-22-53.compute-1.amazonaws.com/index.php");
+                    header("location:"."http://ec2-54-88-99-94.compute-1.amazonaws.com/index.php");
                   }
                 ?>
 

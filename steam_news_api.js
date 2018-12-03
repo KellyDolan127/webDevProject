@@ -1,7 +1,6 @@
 var express = require('express');
 var cheerio = require('cheerio');
 var app = express();
-var app2= express();
 var request = require('request');
 
 // my key EF6233DCF8DC8AFFB8419F82A085B4A1
@@ -51,13 +50,13 @@ app.get('/steam/news', function(req, res) { //posting to our website
                        toSend[k + "_newsBreakPointHere" + i] = (arr[i]);
                        var newsItem = arr[i];
                        var urlToArt =newsItem.substring(newsItem.indexOf("url")+6, newsItem.indexOf("is_ext")-3);
-                        console.log(urlToArt);
+                        //console.log(urlToArt);
                     ///////
                        request(urlToArt, function (err, res, html){
                         if (!err && res.statusCode == 200) {
                         // console.log(html);
                        var test = cheerio.load(html);
-                       console.log(test.text());
+                       //console.log(test.text());
                        
                        //$('div.glance_tags.popular_tags').each(function(i, ele) {
                           // k += 1;
@@ -66,7 +65,7 @@ app.get('/steam/news', function(req, res) { //posting to our website
                            //tag = tag.replace(new RegExp('\n','g'),' ');
                            //tag = tag.replace(new RegExp('\t','g'),'');
                           //console.log(tag);
-                           console.log('-----')
+                           //console.log('-----')
                            //toSend[k + "_type"]=tag.trim();
                           
                        //});
@@ -97,5 +96,5 @@ app.get('/steam/news', function(req, res) { //posting to our website
 
 });
 
-
 var server = app.listen(5000);
+
