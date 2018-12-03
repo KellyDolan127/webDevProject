@@ -1,5 +1,5 @@
 var express = require('express');
-
+var cheerio = require('cheerio');
 var app = express();
 var request = require('request');
 
@@ -51,7 +51,7 @@ var games = [];
         function populateToSend(_callback){
         //console.log(temp);
         games.forEach(function (elem){
-            console.log(elem);
+            //console.log(elem);
             var playtime = elem;
             playtime = playtime.substring(playtime.indexOf("forever")+10, playtime.indexOf("}"));
             elem = elem.replace(/^\D+/g, '');
@@ -61,7 +61,7 @@ var games = [];
             
             request.get(urlGame + elem, function(gameError, gameSteamRes, gameSteamBody) { //getting from stea
                 var gameName = JSON.stringify(gameSteamBody);
-                //console.log(gameName);
+               // console.log(gameName);
                 var toStart =gameName.indexOf ('Name');
                 var toRemove =gameName.indexOf ('gameV');
                 gameName = gameName.substring(toStart, toRemove);
@@ -71,7 +71,36 @@ var games = [];
                 if (gameName != null && gameName != ''){
                    // console.log(gameName.replace('Name:', ''));
                    // toSend["Game" + i]=gameName.replace('Name:', '');
+                   if (gameName.indexOf("ValveTestApp") > -1 ){
+                       
+
+///////////////////////////////////////////////////////////////
+
+var urlToGetRealNameDamnit= 'https://store.steampowered.com/app/';
+request(urlToGetRealNameDamnit + elem, function (err, res, html){
+    // console.log(html);
+   var $ = cheerio.load(html);
+   
+   
+      
+       //console.log(i);
+       var tag = $('div.apphub_AppName').text();
+       tag = tag.replace(new RegExp('\n','g'),' ');
+       tag = tag.replace(new RegExp('\t','g'),'');
+       //console.log(tag.trim());
+       //console.log('-----')
+       console.log(gameName=tag.trim());
+       console.log(playtime);
+
+      
+   
+});
+
+                    ////////////////////////////////////////////////////////////////
+                   }else{
                     console.log(gameName.replace('Name:', ''));
+                    console.log(playtime);
+                   }
                     //console.log(playtime);
                     //totalPlayTime += parseInt(playtime);
                     //console.log(totalPlayTime);
