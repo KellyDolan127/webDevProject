@@ -17,19 +17,20 @@ app.get('/steam/gameTop', function(req, res) { //posting to our website
                  // console.log(html);
                 var answer = "";
                 var $ = cheerio.load(html);
-                
-                //$('div.glance_tags.popular_tags').each(function(i, ele) {
-                    
-                    var list = $('.listItem__title listItem__title--link black');
-					console.log(list.length);  //should be 49 or 50
+                var k = 0;
+                $('body').each(function(i, ele) {
+                     k += 1;
+                    //console.log(i);
+                    var tag = $('a..listItem__title.listItem__title', ele).text();
+                    tag = tag.replace(new RegExp('\n','g'),' ');
+                    tag = tag.replace(new RegExp('\t','g'),'');
+                    //console.log(tag.trim());
+                    //console.log('-----')
+                    toSend[k + "_type"]=tag.trim();
 					
-					for (var i=0; i< list.length; i++){
-						var temp = list[i].text();
-						temp = temp.replace(new RegExp('\n','g'),' ');
-						temp = temp.replace(new RegExp('\t','g'),'');
-						toSend[i + "_gameListTop"]=temp.trim(); 
-					}
-                //});
+					
+            
+                });
  
             });
     
