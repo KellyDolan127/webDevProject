@@ -20,12 +20,14 @@ $(document).ready(function(){
     var jsonData = JSON.stringify(data);
 	jsonData = jsonData.replace(/"|}/g, '');
 	var answer = jsonData.split(/(\B[a-z](?=[A-Z])|[1-9](?=[A-Z])|[V](?=[A-Z]))/g);
+	var k = 1;
 	for (var i =0; i<answer.length; i += 2){
 		
 		if (i ==0){
 			answer[i] = answer[i].substring(answer[i].indexOf("':'")+3, answer[i].length);
 		}
-		node.innerHTML += "<div class='feedNews'><h4>" +(i+1)+ ":" + answer[i] + answer[i+1] +"</h4></div>";
+		node.innerHTML += "<div class='feedNews'><h4>" +k+ ":" + answer[i] + answer[i+1] +"</h4></div>";
+		k += 1;
 	}
 });	
 });		
