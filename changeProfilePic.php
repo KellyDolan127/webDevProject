@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
  <head>
-        <title>Game Group - Profile Update</title><!---->
+        <title>Game Group - Update Profile Picture</title><!---->
         <meta charset="UTF-8">
 		<link href="style.css" type="text/css" rel="stylesheet" >
 		<link rel="shortcut icon" href="favCon.png" type="image/png" sizes="16x16">
@@ -21,7 +21,6 @@
         if(isset($_POST['updatePicture'])){
             $didUpload = move_uploaded_file($fileTmpName, $uploadedPath);
             if($didUpload){
-                //echo "The file ".basename($fileName)."has been updated! Check directory to see";
                 $picPath = "'images/".basename($fileName)."'";
                 $link = mysqli_connect("localhost", "root", "", "websitedb");
 			    if($link === false){
