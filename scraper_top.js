@@ -21,7 +21,7 @@ app.get('/steam/gameTop', function(req, res) { //posting to our website
                 $('body').each(function(i, ele) {
                      k += 1;
                     //console.log(i);
-                    var tag = $('a..listItem__title.listItem__title', ele).text();
+                    var tag = $('a.listItem__title.listItem__title', ele).text();
                     tag = tag.replace(new RegExp('\n','g'),' ');
                     tag = tag.replace(new RegExp('\t','g'),'');
                     //console.log(tag.trim());
