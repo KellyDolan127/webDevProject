@@ -20,6 +20,7 @@ Members:
 Project:
    Title: Game Group
    Purpose: Gaming website
+   GitHub: https://github.com/KellyDolan127/webDevProject
 
 
 How to run:
