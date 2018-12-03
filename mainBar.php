@@ -41,5 +41,6 @@
 				<a href=index.php>Main</a><br />
 				<a href=games.php>Games</a><br />
 				<a href=profile.php>Forum</a><br />
+			        <a href=aboutUs.php>About Us</a><br />
 		</div>
     </div>
