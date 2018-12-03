@@ -29,7 +29,7 @@ you re-size the webpage everything isn't overlapping and thrown around
 		 
 		 $=jQuery.noConflict();
 		
-			 $.get("http://ec2-54-88-99-94.compute-1.amazonaws.com:5000/steam/news", function (data, textStatus, jqXHR) {
+			 $.get("http://ec2-174-129-52-94.compute-1.amazonaws.com:5000/steam/news", function (data, textStatus, jqXHR) {
 		
 				var jsonData = JSON.stringify(data);
 				
