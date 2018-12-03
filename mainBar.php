@@ -8,9 +8,6 @@
 			Game Group
 		</div>
 		
-		
-
-		
 		<?php if (!isset($_SESSION['user']) && empty($_SESSION['user'])) {?>
 		
 		<form action="signup.php">
@@ -35,8 +32,7 @@
                   }
                 ?>
 
-		<?php } ?>  <br> 
-		
+		<?php } ?>  <br/> 
 		
 		<!--Will display "Logout" if logged in-->
 
@@ -44,6 +40,6 @@
 				This area for pages <br /><br />
 				<a href=index.php>Main</a><br />
 				<a href=games.php>Games</a><br />
-				<a href=forum.php>Forum</a><br />
+				<a href=profile.php>Forum</a><br />
 		</div>
     </div>
