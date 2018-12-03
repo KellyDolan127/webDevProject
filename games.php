@@ -8,52 +8,42 @@
 		<link href="" type="image/png" rel="shortcut icon" /><!---->
 		<script type="text/javascript" src=""></script><!---->
     </head>
-<body>
+<body onload="callAPI()">
+<script>
+function callAPI(){
+$(document).ready(function(){
+ $=jQuery.noConflict();
+		
+ $.get("http://ec2-52-91-22-53.compute-1.amazonaws.com:2000/steam/gameTop", function (data, textStatus, jqXHR) {
+	var node = document.getElementById('news');
+	var jsonData = "{'1_type':'Fortnite: Battle RoyaleGrand Theft Auto VTom Clancy's Rainbow Six SiegeOverwatchPlayerUnknown's BattlegroundsMinecraftLeague Of LegendsRocket LeagueRobloxSuper Mario OdysseyCounter-Strike: Global OffensiveThe Legend Of Zelda: Breath Of The WildBattlefield 1Call Of Duty: Black Ops IICall of Duty: Black Ops IIIICall Of Duty: WWIIFIFA 18Super Smash Bros. For Wii UAssassin's Creed OriginsThe Elder Scrolls V: SkyrimDestiny 2Call Of Duty: Black Ops IIIStar Wars Battlefront IIFallout 4Call Of Duty: Black OpsArk: Survival EvolvedSplatoon 2World Of WarcraftSuper Smash Bros. MeleeGod Of WarTerrariaNBA 2K18Minecraft Pocket EditionClash RoyaleFar Cry 5Pac-ManPlants Vs. ZombiesPortalThe Sims 4Mortal Kombat XFriday The 13th: The GameForza Horizon 3Dead By DaylightUndertaleDetroit: Become HumanFive Nights At Freddy'sHalo 5: GuardiansPlants Vs. Zombies Garden Warfare 2Just Cause 3_'}";
+    var jsonData = JSON.stringify(data);
+	jsonData = jsonData.replace(/"|}/g, '');
+	var answer = jsonData.split(/(\B[a-z](?=[A-Z])|[1-9](?=[A-Z])|[V](?=[A-Z]))/g);
+	for (var i =0; i<answer.length; i += 2){
+		
+		if (i ==0){
+			answer[i] = answer[i].substring(answer[i].indexOf("':'")+3, answer[i].length);
+		}
+		node.innerHTML += "<div class='feedNews'><h4>" +(i+1)+ ":" + answer[i] + answer[i+1] +"</h4></div>";
+	}
+});	
+});		
+}
+</script>
 <?php include("mainBar.php"); ?>
 <div id="sidebar">
 			This area for pages <br /><br />
 			<a href=index.php>Main</a><br />
 			<a href=games.php>Games</a><br />
 			<a href=forum.php>Forum</a><br />
-			<a href=aboutUs.php>About Us</a><br />
 		</div>
-		<div id="rankTable">
-			<h1>Ranking Table for Games</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Trending Rank</th>
-						<th>Game</th>
-						<th>Game Description</th>
-					</tr>
-				</thead>
-				<tr>
-					<td><center>1</center></td>
-					<td>Fortnite</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><center>2</center></td>
-					<td>Counter Strike: Global Offensive</td>
-					<td>Counter-Strike: Global Offensive is an online tactical first-person shooter developed by Valve Corporation 
-						and Hidden Path Entertainment, who also maintained Counter-Strike: Source after its release. It is the 
-						fourth game in the main Counter-Strike franchise. Counter Strike Global Offensive was released on 
-						August 21, 2012<a href="https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive">...more</a></td>
-				</tr>
-				<tr>
-					<td><center>3</center></td>
-					<td>League of Legends</td>
-					<td>League of Legends is a multiplayer online battle arena video game developed 
-						and published by Riot Games for Microsoft Windows and Mac OS X. It is a free-to-play 
-						game that is supported by micro-transactions and inspired by 
-						<a href="https://en.wikipedia.org/wiki/League_of_Legends">...more</a></td>
-				</tr>
-				<tr>
-					<td><center>4</center></td>
-					<td>Overwatch</td>
-				</tr>
-			</table>
-		</div>
-
+		
+		<h1 class='innerHeader'>&nbspTop Games (Refreshes Daily)</h1>
+		<div id="mainPageFeed">
+			
+			<div id="news"> </div>
+			
+			</div>
 </body>
 </html>
