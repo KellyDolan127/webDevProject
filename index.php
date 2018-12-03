@@ -76,6 +76,7 @@ you re-size the webpage everything isn't overlapping and thrown around
 			<a href=index.php>Main</a><br />
 			<a href=games.php>Games</a><br />
 			<a href=forum.php>Forum</a><br />
+			<a href=aboutUs.php>About Us</a><br />
 		</div>
 		<h1 class='innerHeader'>&nbspNews</h1>
 		<button id="refresh" onclick="window.location.href=window.location.href">Refresh News</button>
