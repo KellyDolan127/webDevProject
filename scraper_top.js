@@ -25,6 +25,7 @@ app.get('/steam/gameTop', function(req, res) { //posting to our website
                     tag = tag.replace(new RegExp('\t','g'),'');
                     //console.log(tag.trim());
                     //console.log('-----')
+                    tag += "_";
                     toSend[k + "_type"]=tag.trim();
 					
 					
