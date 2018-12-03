@@ -20,7 +20,9 @@ Members:
 Project:
    Title: Game Group
    Purpose: Gaming website
-   Website link: http://ec2-54-88-99-94.compute-1.amazonaws.com/
+   Website link: http://ec2-174-129-52-944.compute-1.amazonaws.com/
+   NOTE: THIS KEEPING CHANGING. OUT OF MEMORY.  WE ARE VERY SORRY ABOUT THIS
+   IF this changes the following files need to be updated: index, profileGameREc, profileGameStat, mainBar, games, profileFriend
    GitHub: https://github.com/KellyDolan127/webDevProject
 
 
