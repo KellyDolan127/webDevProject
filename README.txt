@@ -72,7 +72,7 @@ Files:
   aboutUs.php
   
   steam_api_new.js (Run on Node backend server: Used for profileRec/Stat/Games/Friends)
-  steam_news_api.js (Run on Node backend server: Used for main)
+  steam_news_api.js (Run on Node backend server: Used for main and games)
   external.js (signup)
   
   style.css
