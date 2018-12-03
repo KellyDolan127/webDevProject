@@ -32,6 +32,7 @@ How to run:
            add-on let us do this: Allow-Control-Allow-Origin
            https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/related?hl=en-US 
 
+
 Features:
    Login
    Logout
@@ -44,12 +45,14 @@ Features:
      -stats of most played game genres
      -list of friends with links to steam profiles
    
+   
 Languages:
    HTML
    CSS
    PHP
    Javascript
    SQL
+   
    
 Files:
   index.php (main page)
