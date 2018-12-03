@@ -10,10 +10,10 @@ Members:
       -Main page, profile games/stats/friends, logout, aboutUs, mainBar/profileBar, api/web scrape, php session handling,
        HTML/CSS main structure, php conversion, logo/favcon creation, README
    Daniel Rodriguez
-      -Login/Signup, concept of look-and-feel, Server setup and configuration and documentation, 
+      -Login/Signup, concept of look-and-feel, Server setup and configuration and documentation, SQL initial creation,
        html and css touch ups
    James Goodwyn
-      -Main profile page, profile update, html and css touch ups, 
+      -Main profile page, profile update, html and css touch ups, SQL add ins (adding new columns and modifying),
        research on php and mysql connections
 
 
